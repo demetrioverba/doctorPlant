@@ -1,7 +1,8 @@
 export const elements = {
     searchForm: document.querySelector('.search'),
     searchInput: document.querySelector('.form-control'),
-    searchResList: document.getElementById('renderApiResults')
+    searchResList: document.getElementById('renderApiResults'),
+    searchResPages: document.querySelector('.results__pages')
 };
 
 export const elementStrings = {

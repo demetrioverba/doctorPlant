@@ -29,7 +29,7 @@ const controlSearch = async () => {
     // 5) Render results on UI
     clearLoder();
     searchView.renderResults(state.search.result);
-    console.log(state.search.result);
+    //console.log(state.search.result);
   } 
 
 };
@@ -37,4 +37,14 @@ const controlSearch = async () => {
 elements.searchForm.addEventListener('submit', e => {
   e.preventDefault();
   controlSearch();
+});
+
+elements.searchResPages.addEventListener('click', e => {
+  const btn = e.target.closest('.btn-inline')
+  if (btn) {
+    const goToPage = parseInt(btn.dataset.goto, 10);
+    searchView.clearResults();
+    searchView.renderResults(state.search.result, goToPage);
+  }
+
 });
