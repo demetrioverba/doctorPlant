@@ -12,6 +12,16 @@ export const clearResults = () => {
     elements.searchResPages.innerHTML ='';
 };
 
+export const DelBtn = () => {
+    const markup = `
+        <br><br><br>
+        <button type="button" class="btn btn-secondary btn-sm btn-block">Очистить</button>
+    `;
+
+    elements.searchResPages.insertAdjacentHTML('beforeend', markup);
+};
+
+
 const renderRecipe = recipe => {
     const markup = `
     <div class="col mb-4">
@@ -33,7 +43,7 @@ const renderRecipe = recipe => {
 const createButton = (page, type) => `
 
     <button type="button" class="btn btn-inline btn-outline-secondary" style="float:${type === 'prev' ? 'left' : 'right'}" data-goto=${type === 'prev' ? page - 1 : page + 1}>
-        <span>${type === 'prev' ? 'prev' : 'next'}</span>
+        <span>${type === 'prev' ? 'назад' : 'еще'}</span>
     </button>
 
 
@@ -46,6 +56,8 @@ const renderButtons = (page, numResults, resPerPage) => {
     if (page === 1 && pages > 1) {
         // Only button to go to next page
         button = createButton(page, 'next');
+        DelBtn();
+
     }
     else if (page < pages) {
         // Both buttons
@@ -53,10 +65,13 @@ const renderButtons = (page, numResults, resPerPage) => {
         ${button = createButton(page, 'prev')}
         ${button = createButton(page, 'next')}
         `;
+        DelBtn();
     }
     else if (page === pages && pages > 1) {
         // Only button to go to prev page
         button = createButton(page, 'prev');
+        DelBtn();
+
 
     }
 

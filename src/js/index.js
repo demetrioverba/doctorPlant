@@ -29,6 +29,8 @@ const controlSearch = async () => {
     // 5) Render results on UI
     clearLoder();
     searchView.renderResults(state.search.result);
+    //searchView.DelBtn();
+
     //console.log(state.search.result);
   } 
 
@@ -40,11 +42,16 @@ elements.searchForm.addEventListener('submit', e => {
 });
 
 elements.searchResPages.addEventListener('click', e => {
-  const btn = e.target.closest('.btn-inline')
+  const btn = e.target.closest('.btn-inline');
+  const btnDel = e.target.closest('.btn-secondary');
+
   if (btn) {
     const goToPage = parseInt(btn.dataset.goto, 10);
     searchView.clearResults();
     searchView.renderResults(state.search.result, goToPage);
+  }
+  else if (btnDel) {
+    searchView.clearResults();
   }
 
 });
