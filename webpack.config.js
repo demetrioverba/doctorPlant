@@ -12,9 +12,20 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
+            title: 'Home',
             filename: 'index.html',
             template: './src/dr.html'
-        })
+        }),
+        new HtmlWebpackPlugin({
+            title: 'Portfolio',
+            filename: 'portfolio.html',
+            template: './src/portfolio.html'
+        }),
+        new HtmlWebpackPlugin({
+            title: 'HomeU',
+            filename: 'drUcr.html',
+            template: './src/drU.html'
+        }),
     ],
     module: {
         rules: [
