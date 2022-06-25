@@ -35,7 +35,7 @@
     "add": "^2.0.6",
     "axios": "^0.20.0",
     "babel-polyfill": "^6.26.0",
-    "node-fetch": "^2.6.1",
+    "node-fetch": "^2.6.7",
     "yarn": "^1.22.5"
   }
 }
